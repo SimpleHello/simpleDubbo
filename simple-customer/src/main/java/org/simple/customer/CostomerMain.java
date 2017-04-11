@@ -1,6 +1,5 @@
 package org.simple.customer;
 
-import org.simple.spi.DemoService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class CostomerMain {
@@ -11,3 +10,4 @@ public class CostomerMain {
         System.in.read();  
     }  
 }
+

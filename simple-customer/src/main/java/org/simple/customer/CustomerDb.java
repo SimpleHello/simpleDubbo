@@ -5,7 +5,7 @@ import org.simple.spi.ProvideService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("customerDb")
+//@Service("customerDb")
 public class CustomerDb implements CustomerService{
 
 	@Autowired
