@@ -20,10 +20,10 @@
     <!-- 用dubbo协议在20880端口暴露服务 -->  
     <dubbo:protocol name="dubbo" port="20880" />
     
-   <!-- 要提供的服务接口 -->    
-   <dubbo:service interface="org.simple.spi.CustomerService" ref="customerDb" />   
+    <!-- 要提供的服务接口 -->
+    <dubbo:service interface="org.simple.spi.service.DemoService" ref="customerService" group="customer" /> 
     
     <!-- 接收的接口  -->  
-   <import resource="dubbo-customer.xml"/>
+    <import resource="dubbo-customer.xml"/>   
        
 </beans>  

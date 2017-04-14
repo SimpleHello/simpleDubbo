@@ -21,7 +21,7 @@
    <dubbo:registry address="${zookeeper.address}" check="false"></dubbo:registry>  
     
    <!-- 要提供的服务接口 -->
-   <dubbo:service interface="org.simple.spi.ProvideService" ref="privodeDb" /> 
+   <dubbo:service interface="org.simple.spi.service.DemoService" ref="provideService" group="provide"/> 
      
     <!-- 接收的接口  -->  
    <import resource="dubbo-customer.xml"/>     

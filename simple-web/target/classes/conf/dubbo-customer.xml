@@ -13,9 +13,7 @@
     default-lazy-init="false" >  
     
    <!-- 要获取的服务接口 -->    
-   <dubbo:reference id="customerDb"   interface="org.simple.spi.CustomerService"  />
-   <!-- 要获取的服务接口 -->    
-   <dubbo:reference id="demoService"   interface="org.simple.spi.DemoService"  />  
-   <dubbo:reference id="privodeDb"   interface="org.simple.spi.ProvideService" />  
+   <dubbo:reference id="privodeService"   interface="org.simple.spi.service.DemoService" check="false" group="provide"/>     
+   <dubbo:reference id="customerService"   interface="org.simple.spi.service.DemoService" check="false" group="customer"/> 
        
 </beans>  

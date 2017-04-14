@@ -3,19 +3,17 @@ package org.simple.customer.main;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.alibaba.dubbo.container.Main;
-
 
 /**
  * 
  * @author John
  *
  */
-public class SyncServer {
+public class CustomerSyncServer {
 
     private final AbstractApplicationContext springContext;
 
-    public SyncServer() {
+    public CustomerSyncServer() {
         springContext = new ClassPathXmlApplicationContext("classpath:conf/applicationContext.xml");
     }
 
@@ -28,12 +26,12 @@ public class SyncServer {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SyncServer server = new SyncServer();
+        CustomerSyncServer server = new CustomerSyncServer();
         Runtime.getRuntime().addShutdownHook(new ShutdownThread(server));
-        synchronized (SyncServer.class) {
+        synchronized (CustomerSyncServer.class) {
             while (true) {
                 try {
-                    Main.class.wait();
+                	CustomerSyncServer.class.wait();
                 } catch (Throwable e) {
                 }
             }
@@ -42,9 +40,9 @@ public class SyncServer {
 
     private static class ShutdownThread extends Thread {
 
-        private final SyncServer server;
+        private final CustomerSyncServer server;
 
-        public ShutdownThread(SyncServer server) {
+        public ShutdownThread(CustomerSyncServer server) {
             this.server = server;
         }
 

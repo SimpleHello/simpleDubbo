@@ -11,11 +11,11 @@ import com.alibaba.dubbo.container.Main;
  * @author John
  *
  */
-public class SyncServer {
+public class ProvideSyncServer {
 
     private final AbstractApplicationContext springContext;
 
-    public SyncServer() {
+    public ProvideSyncServer() {
         springContext = new ClassPathXmlApplicationContext("classpath:conf/applicationContext.xml");
     }
 
@@ -28,12 +28,12 @@ public class SyncServer {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SyncServer server = new SyncServer();
+        ProvideSyncServer server = new ProvideSyncServer();
         Runtime.getRuntime().addShutdownHook(new ShutdownThread(server));
-        synchronized (SyncServer.class) {
+        synchronized (ProvideSyncServer.class) {
             while (true) {
                 try {
-                    Main.class.wait();
+                	ProvideSyncServer.class.wait();
                 } catch (Throwable e) {
                 }
             }
@@ -42,9 +42,9 @@ public class SyncServer {
 
     private static class ShutdownThread extends Thread {
 
-        private final SyncServer server;
+        private final ProvideSyncServer server;
 
-        public ShutdownThread(SyncServer server) {
+        public ShutdownThread(ProvideSyncServer server) {
             this.server = server;
         }
 

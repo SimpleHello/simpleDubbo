@@ -6,9 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.simple.entity.DemoEntity;
-import org.simple.spi.CustomerService;
-import org.simple.spi.ProvideService;
+import org.simple.spi.entity.DemoEntity;
+import org.simple.spi.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -16,13 +15,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= "classpath:conf/applicationContext.xml")
-public class MongdbTest {
+public class DubboTest {
 
 	@Autowired
-	CustomerService customerDb;
+	DemoService customerService;
 	
 	@Autowired
-	ProvideService privodeDb;
+	DemoService privodeService;
 	
 	@Before
 	public void bef(){
@@ -37,22 +36,19 @@ public class MongdbTest {
 
 	@Test
 	public void demoTest() throws ParseException{
-		String str = customerDb.getFromProviceDemo("李四");
+		String str = customerService.getName("张三");
+//		String str2 = privodeService.getName("customer李四");
 		System.out.println("返回结果:"+str);
-		
+//		System.out.println("返回结果:"+str2);
 	}
 	
 	@Test
-	public void insert() throws ParseException{
-		DemoEntity entity = new DemoEntity();
-		entity.setAge(12);
-		entity.setName("张三");
-		customerDb.save(entity);	
-		System.out.println("保存 成功");
+	public void insert(){
+		DemoEntity entity = new DemoEntity("张三",0);
+		customerService.save(entity);
 	}
+
 	
-
-
 	private int getRandom(int min,int max){
 		return (int)(min+Math.random()*(max-min+1));
 	}
