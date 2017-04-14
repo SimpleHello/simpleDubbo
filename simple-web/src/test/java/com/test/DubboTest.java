@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.demo.service.SelfDemoService;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= "classpath:conf/applicationContext.xml")
@@ -22,6 +24,10 @@ public class DubboTest {
 	
 	@Autowired
 	DemoService privodeService;
+	
+	@Autowired
+	SelfDemoService selfDemoService;
+	
 	
 	@Before
 	public void bef(){
@@ -48,7 +54,11 @@ public class DubboTest {
 		customerService.save(entity);
 	}
 
-	
+	@Test
+	public void seinsert(){
+		DemoEntity entity = new DemoEntity("张三",0);
+		selfDemoService.insert(entity);
+	}
 	private int getRandom(int min,int max){
 		return (int)(min+Math.random()*(max-min+1));
 	}

@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.simple.spi.entity.DemoEntity;
+
 public class DemoEntity01 {
 	private String id;
 	private String[] ids;

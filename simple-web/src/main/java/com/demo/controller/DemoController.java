@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.simple.spi.entity.DemoEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.demo.common.JsonResult;
-import com.demo.entity.DemoEntity;
 import com.demo.entity.DemoEntity01;
-import com.demo.service.DemoService;
+import com.demo.service.SelfDemoService;
 
 @Controller
 @RequestMapping(value = "/simpleDemo", method = RequestMethod.POST)
@@ -25,7 +25,7 @@ public class DemoController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DemoController.class);
 	
 	@Autowired
-	DemoService demoService;
+	SelfDemoService demoService;
 	
 	@RequestMapping(value = "/getDemoMess", method = RequestMethod.POST)
 	public @ResponseBody JsonResult getAlarmCount(HttpServletRequest request) {

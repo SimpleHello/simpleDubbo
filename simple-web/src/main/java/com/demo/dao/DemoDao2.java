@@ -2,12 +2,12 @@ package com.demo.dao;
 
 import java.util.List;
 
+import org.simple.spi.entity.DemoEntity;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import com.demo.common.BaseMongoDAOImpl;
-import com.demo.entity.DemoEntity;
 
 @Repository
 public class DemoDao2 extends BaseMongoDAOImpl<DemoEntity>{

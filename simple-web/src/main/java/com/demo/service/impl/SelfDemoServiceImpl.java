@@ -3,24 +3,32 @@ package com.demo.service.impl;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
+import org.simple.spi.base.DaoHelper;
+import org.simple.spi.entity.DemoEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.demo.dao.DemoDao;
 import com.demo.dao.DemoDao2;
-import com.demo.entity.DemoEntity;
 import com.demo.entity.DemoEntity01;
-import com.demo.service.DemoService;
+import com.demo.service.SelfDemoService;
 
 @Service
-public class DemoServiceImpl implements DemoService {
+public class SelfDemoServiceImpl implements SelfDemoService {
+
+	public static final String namespace = "test_student";
 
 	@Autowired
 	DemoDao demoDao;
-	
+
 	@Autowired
 	DemoDao2 demoDao2;
-	
+
+	@Resource(name = "writeDaoHelper")
+	DaoHelper writeDao;
+
 	@Override
 	public List<DemoEntity> find(DemoEntity entity) {
 		// TODO Auto-generated method stub
@@ -32,7 +40,7 @@ public class DemoServiceImpl implements DemoService {
 		// TODO Auto-generated method stub
 		return demoDao2.find(entity);
 	}
-	
+
 	@Override
 	public void insert(DemoEntity entity) {
 		// TODO Auto-generated method stub
@@ -67,6 +75,12 @@ public class DemoServiceImpl implements DemoService {
 	public List<Map<String, Object>> findGroupQuery() {
 		// TODO Auto-generated method stub
 		return demoDao.findGroupQuery();
+	}
+
+	@Override
+	public void myInsert(DemoEntity entity) throws Exception {
+		// TODO Auto-generated method stub
+		writeDao.insert(namespace, entity);
 	}
 
 }
