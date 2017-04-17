@@ -80,6 +80,7 @@ public class SelfDemoServiceImpl implements SelfDemoService {
 	@Override
 	public void myInsert(DemoEntity entity) throws Exception {
 		// TODO Auto-generated method stub
+//		System.out.println(writeDao.getSqlSessionTemplate());
 		writeDao.insert(namespace, entity);
 	}
 

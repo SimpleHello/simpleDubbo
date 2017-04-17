@@ -18,7 +18,7 @@ public class DemoEntity extends IEntity{
 	public static final String namespace1 = "demoDubbo01";
 	public static final String namespace2 = "demoDubbo02";
 	
-	private Integer id;
+	private String id;
 	private String name;
 	private int age;
 	private Date ctime;
@@ -43,10 +43,10 @@ public class DemoEntity extends IEntity{
 		this.tian = tian;
 	}
 	
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {

@@ -5,20 +5,18 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class DaoHelper extends SqlSessionDaoSupport {
 	
 	private  SqlSessionTemplate sqlSessionTemplate;
-	private  SqlSessionFactory  sqlSessionFactory ;
-	public SqlSessionTemplate getSqlSessionTemplate() {
-		return sqlSessionTemplate;
-	}
-
 
 	public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
 		this.sqlSessionTemplate = sqlSessionTemplate;
+		super.setSqlSessionTemplate(sqlSessionTemplate);
 	}
+	
 
 	public  Object insert(String nameSpace,String sqlID,IEntity entity) throws Exception{
 		try{
@@ -157,6 +155,9 @@ public class DaoHelper extends SqlSessionDaoSupport {
 	private  String getStatement(String nameSpace,String sqlID){
 		return nameSpace+"."+sqlID;
 	}
-	
-	
+
+	public SqlSessionTemplate getSqlSessionTemplate() {
+		return sqlSessionTemplate;
+	}
+
 }

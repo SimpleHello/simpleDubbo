@@ -55,9 +55,9 @@ public class DubboTest {
 	}
 
 	@Test
-	public void seinsert(){
-		DemoEntity entity = new DemoEntity("张三",0);
-		selfDemoService.insert(entity);
+	public void seinsert() throws Exception{
+		DemoEntity entity = new DemoEntity("张三",11);
+		selfDemoService.myInsert(entity);
 	}
 	private int getRandom(int min,int max){
 		return (int)(min+Math.random()*(max-min+1));
