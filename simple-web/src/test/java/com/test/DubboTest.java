@@ -1,6 +1,8 @@
 package com.test;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.After;
@@ -33,15 +35,18 @@ public class DubboTest {
 	@Autowired
 	SelfDemoService selfDemoService;
 	
-	
+	private Date befTime;
+	private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
 	@Before
 	public void bef(){
-		System.out.println("开始单元测试");
+		befTime = new Date();
+		System.out.println("开始单元测试:"+ sdf.format(new Date()));
 	}
 	
 	@After
 	public void aft(){
-		System.out.println("测试结束");
+		Long mins = new Date().getTime()-befTime.getTime();
+		System.out.println("测试结束:"+ sdf.format(new Date())+" 耗时："+mins+"毫秒--");
 	}
 	
 
