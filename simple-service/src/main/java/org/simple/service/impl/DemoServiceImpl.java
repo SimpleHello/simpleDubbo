@@ -1,5 +1,8 @@
 package org.simple.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.simple.spi.entity.DemoEntity;
 import org.simple.spi.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +29,14 @@ public class DemoServiceImpl implements DemoService {
 		System.out.println("####  调用 进去 provide save 成功");
 	}
 
+	@Override
+	public List<String> getList() {
+		// TODO Auto-generated method stub
+		List<String> list = new ArrayList<String>();
+		list.add("777");
+		list.add("888");
+		list.add("999");
+		return list;
+	}
+	
 }

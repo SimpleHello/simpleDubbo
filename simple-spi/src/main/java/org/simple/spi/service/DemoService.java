@@ -1,5 +1,7 @@
 package org.simple.spi.service;
 
+import java.util.List;
+
 import org.simple.spi.entity.DemoEntity;
 
 /**
@@ -12,4 +14,6 @@ public interface DemoService {
 	String getName(String str);
 	
 	void save(DemoEntity entity);
+	
+	List<String> getList();
 }
