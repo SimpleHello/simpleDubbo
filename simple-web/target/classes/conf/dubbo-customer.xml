@@ -15,7 +15,7 @@
    <!-- 要获取的服务接口 -->    
    <dubbo:reference id="privodeService"   interface="org.simple.spi.service.DemoService" check="false" group="provide"/>     
    <dubbo:reference id="customerService"   interface="org.simple.spi.service.DemoService" check="false" group="customer"/> 
-    
+
     <!-- 要获取的服务接口    聚合 -->
-    <dubbo:reference id="demoService"   interface="org.simple.spi.service.DemoService" check="false" group="*" merger="true"/>    
+    <dubbo:reference id="demoService"   interface="org.simple.spi.service.DemoService" check="false" group="${dubbo.merger.group}" merger="true"/>    
 </beans>  

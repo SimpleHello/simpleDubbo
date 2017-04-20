@@ -15,9 +15,15 @@
    <!-- 提供方应用名称信息，这个相当于起一个名字，我们dubbo管理页面比较清晰是哪个应用暴露出来的 -->  
    <dubbo:application name="dubbo_web"></dubbo:application>  
 
+	<!-- 用dubbo协议在20880端口暴露服务 -->  
+    <dubbo:protocol name="dubbo" port="20888" />  
+    
    <!-- 使用zookeeper注册中心 将只订阅，不注册  -->    
    <dubbo:registry address="${zookeeper.address}" register="false" timeout="600000"></dubbo:registry>  
 
+ 	<!-- 要提供的服务接口
+   <dubbo:service interface="org.simple.spi.service.DemoService" ref="webService" group="web"/> 
+     -->
     <!-- 接收的接口  -->  
    <import resource="dubbo-customer.xml"/>     
 </beans>  

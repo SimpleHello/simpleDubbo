@@ -28,7 +28,7 @@ public class DubboTest {
 	
 	@Autowired
 	DemoService privodeService;
-	
+
 	@Autowired
 	DemoService demoService;
 	
@@ -36,27 +36,27 @@ public class DubboTest {
 	SelfDemoService selfDemoService;
 	
 	private Date befTime;
-	private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
+	private static final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss:SSS");
 	@Before
 	public void bef(){
 		befTime = new Date();
-		System.out.println("开始单元测试:"+ sdf.format(new Date()));
+		System.out.println("######  开始单元测试:"+ sdf.format(new Date()));
 	}
 	
 	@After
 	public void aft(){
 		Long mins = new Date().getTime()-befTime.getTime();
-		System.out.println("测试结束:"+ sdf.format(new Date())+" 耗时："+mins+"毫秒--");
+		System.out.println("######  测试结束:"+ sdf.format(new Date())+" 耗时："+mins+"毫秒--");
 	}
 	
 
 	@Test
 	public void demoTest() throws ParseException{
-		List<String> list1 = customerService.getList();
-		List<String> list2 = privodeService.getList();
+//		List<String> list1 = customerService.getList();
+//		List<String> list2 = privodeService.getList();
 		List<String> list3 = demoService.getList();
-		show(list1,"customerService");
-		show(list2,"privodeService");
+//		show(list1,"customerService");
+//		show(list2,"privodeService");
 		show(list3,"demoService");
 	}
 	
